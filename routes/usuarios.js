@@ -4,7 +4,7 @@ const db = require('../db/setup');
 const bcrypt = require('bcrypt');
 const authenticateToken = require('../middlewares/auth');
 
-router.get('/', authenticateToken, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const usuarios = await db('usuarios').select('id', 'nome', 'email');
     res.json(usuarios);
@@ -14,7 +14,19 @@ router.get('/', authenticateToken, async (req, res) => {
   }
 });
 
-router.post('/', authenticateToken, async (req, res) => {
+router.get('/:id', async (req, res) => {
+  try {
+    const id = req.params.id
+
+    const usuarios = await db('usuarios').select('id', 'nome', 'email').where({ id });
+    res.json(usuarios);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Erro no servidor');
+  }
+});
+
+router.post('/', async (req, res) => {
   try {
     const { nome, email, senha } = req.body;
 
