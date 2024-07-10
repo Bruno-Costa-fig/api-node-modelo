@@ -1,0 +1,33 @@
+# Dependências instaladas pelo npm
+/node_modules
+
+# Arquivos gerados pelo ambiente de desenvolvimento
+/.env
+/.env.*
+/.env.local
+/.env.development
+/.env.test
+/.env.production
+
+# Arquivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Arquivos de build
+/build
+
+# Arquivos de cache
+/.pnp
+.pnp.js
+
+# Arquivos de cobertura de testes
+/coverage
+
+# Arquivos gerados pelo IDE
+/.vscode
+/.idea
+
+# Arquivos de configuração do sistema
+.DS_Store
+Thumbs.db
